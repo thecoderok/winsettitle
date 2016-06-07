@@ -62,17 +62,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SettingsForm.Designer.cs">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="SingleGlobalInstance.cs" />
     <Compile Include="WinApiDllImports.cs" />
     <Compile Include="WinApiHelper.cs" />
     <Compile Include="WindowTitleSetter.cs" />
     <Compile Include="WinSetTitleException.cs" />
+    <EmbeddedResource Include="EditWindowTitleForm.resx">
+      <DependentUpon>EditWindowTitleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
