@@ -56,6 +56,16 @@ namespace WinSetApplicationTitle
 
         private void showApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.ShowMainWindow();
+        }
+
+        private void trayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.ShowMainWindow();
+        }
+
+        private void ShowMainWindow()
+        {
             this.Show();
         }
     }
