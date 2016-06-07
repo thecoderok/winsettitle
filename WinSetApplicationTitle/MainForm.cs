@@ -3,8 +3,6 @@ using System.Windows.Forms;
 
 namespace WinSetApplicationTitle
 {
-    using System.Linq;
-
     public partial class MainForm : Form
     {
         public MainForm()
