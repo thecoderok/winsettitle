@@ -56,6 +56,7 @@
     <Compile Include="EditWindowTitleForm.Designer.cs">
       <DependentUpon>EditWindowTitleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalKeyboardHook.cs" />
     <Compile Include="GlobalKeyboardHooksManager.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -71,6 +72,8 @@
     <Compile Include="SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SingleGlobalInstance.cs" />
+    <Compile Include="WinApiDllImports.cs" />
     <Compile Include="WindowTitleSetter.cs" />
     <Compile Include="WinSetTitleException.cs" />
     <EmbeddedResource Include="MainForm.resx">

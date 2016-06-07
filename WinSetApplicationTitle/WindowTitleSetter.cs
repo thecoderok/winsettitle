@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 
 namespace WinSetApplicationTitle
 {
@@ -18,10 +17,7 @@ namespace WinSetApplicationTitle
                 throw new WinSetTitleException("Give process does not have GUI window: " + process.ProcessName);
             }
 
-            SetWindowText(process.MainWindowHandle, newTitle);
+            WinApiDllImports.SetWindowText(process.MainWindowHandle, newTitle);
         }
-
-        [DllImport("user32.dll")]
-        static extern int SetWindowText(IntPtr hWnd, string text);
     }
 }
