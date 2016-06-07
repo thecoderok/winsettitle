@@ -1,6 +1,5 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
-using static WinSetApplicationTitle.WinApiDllImports;
 
 namespace WinSetApplicationTitle
 {
@@ -17,7 +16,7 @@ namespace WinSetApplicationTitle
         private void Helper_KeyPressed(object sender, KeyPressedEventArgs e)
         {
             var titleSetter = new WindowTitleSetter();
-            POINT p = new POINT();
+            WinApiDllImports.POINT p = new WinApiDllImports.POINT();
             bool retVal = WinApiDllImports.GetCursorPos(ref p);
             if (retVal)
             {
