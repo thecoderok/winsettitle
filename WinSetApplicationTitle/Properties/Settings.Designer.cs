@@ -22,5 +22,17 @@ namespace WinSetApplicationTitle.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool RunApplicationWhenWindowsStarts {
+            get {
+                return ((bool)(this["RunApplicationWhenWindowsStarts"]));
+            }
+            set {
+                this["RunApplicationWhenWindowsStarts"] = value;
+            }
+        }
     }
 }
