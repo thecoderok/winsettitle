@@ -1,8 +1,10 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace WinSetApplicationTitle
 {
+    using System.Linq;
+
     public partial class MainForm : Form
     {
         public MainForm()
@@ -16,27 +18,17 @@ namespace WinSetApplicationTitle
         private void Helper_KeyPressed(object sender, KeyPressedEventArgs e)
         {
             var titleSetter = new WindowTitleSetter();
-            WinApiDllImports.POINT p = new WinApiDllImports.POINT();
-            bool retVal = WinApiDllImports.GetCursorPos(ref p);
-            if (retVal)
+            var winApiHelper = new WinApiHelper();
+            GuiWindowInfo window = winApiHelper.GetWindowUnderMouse();
+            if (window == null)
             {
-                IntPtr hwnd = WinApiDllImports.WindowFromPoint(p);
-                if (hwnd.ToInt64() > 0)
-                {
-                    var result = hwnd;
-                    while (WinApiDllImports.GetParent(hwnd).ToInt64() > 0)
-                    {
-                        hwnd = WinApiDllImports.GetParent(hwnd);
-                    }
-                    titleSetter.SetTitleByMainWindowHandle(hwnd, "root");
-                    //For Parent 
-                    /*IntPtr hWndParent = WinApiDllImports.GetParent(hwnd);
-                    if (hWndParent.ToInt64() > 0)
-                    {
-                        titleSetter.SetTitleByMainWindowHandle(hWndParent, "Parent");
-                    }*/
-                }
+                return;
             }
+
+            var arr = window.Title.ToCharArray();
+            Array.Reverse(arr);
+
+            titleSetter.SetTitleByMainWindowHandle(window.MainWindowHandle, new string(arr));
         }
     }
 }
