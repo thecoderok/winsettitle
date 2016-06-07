@@ -45,6 +45,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutostartupHelper.cs" />
     <Compile Include="EditWindowTitleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,6 +54,9 @@
     </Compile>
     <Compile Include="GlobalKeyboardHooksManager.cs" />
     <Compile Include="GuiWindowInfo.cs" />
+    <Compile Include="HotKeyControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="HotKeysHelper.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

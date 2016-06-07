@@ -37,10 +37,11 @@ namespace WinSetApplicationTitle
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnExit = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.chkHideWindowOnStartup = new System.Windows.Forms.CheckBox();
             this.chkStartAppAutomatically = new System.Windows.Forms.CheckBox();
-            this.btnExit = new System.Windows.Forms.Button();
+            this.hotKeyControl1 = new WinSetApplicationTitle.HotKeyControl();
             this.trayContextMenuStrip.SuspendLayout();
             this.mainTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -82,6 +83,7 @@ namespace WinSetApplicationTitle
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // mainTabControl
             // 
@@ -105,8 +107,19 @@ namespace WinSetApplicationTitle
             this.tabPage1.Text = "Main";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(8, 6);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 0;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.hotKeyControl1);
             this.tabPage2.Controls.Add(this.chkHideWindowOnStartup);
             this.tabPage2.Controls.Add(this.chkStartAppAutomatically);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -126,6 +139,7 @@ namespace WinSetApplicationTitle
             this.chkHideWindowOnStartup.TabIndex = 3;
             this.chkHideWindowOnStartup.Text = "Hide window on startup";
             this.chkHideWindowOnStartup.UseVisualStyleBackColor = true;
+            this.chkHideWindowOnStartup.CheckedChanged += new System.EventHandler(this.chkHideWindowOnStartup_CheckedChanged);
             // 
             // chkStartAppAutomatically
             // 
@@ -136,16 +150,15 @@ namespace WinSetApplicationTitle
             this.chkStartAppAutomatically.TabIndex = 2;
             this.chkStartAppAutomatically.Text = "Start application automatically";
             this.chkStartAppAutomatically.UseVisualStyleBackColor = true;
+            this.chkStartAppAutomatically.CheckedChanged += new System.EventHandler(this.chkStartAppAutomatically_CheckedChanged);
             // 
-            // btnExit
+            // hotKeyControl1
             // 
-            this.btnExit.Location = new System.Drawing.Point(8, 6);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 0;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.hotKeyControl1.Location = new System.Drawing.Point(8, 52);
+            this.hotKeyControl1.Name = "hotKeyControl1";
+            this.hotKeyControl1.Size = new System.Drawing.Size(114, 23);
+            this.hotKeyControl1.TabIndex = 4;
+            this.hotKeyControl1.Text = "hotKeyControl1";
             // 
             // MainForm
             // 
@@ -179,6 +192,7 @@ namespace WinSetApplicationTitle
         private System.Windows.Forms.CheckBox chkHideWindowOnStartup;
         private System.Windows.Forms.CheckBox chkStartAppAutomatically;
         private System.Windows.Forms.Button btnExit;
+        private HotKeyControl hotKeyControl1;
     }
 }
 
