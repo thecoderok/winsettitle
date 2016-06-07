@@ -1,6 +1,6 @@
 ﻿namespace WinSetApplicationTitle
 {
-    public class GlobalKeyboardHooksManager
+    public class HotKeyManager
     {
     }
 }

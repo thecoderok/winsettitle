@@ -17,7 +17,12 @@ namespace WinSetApplicationTitle
                 throw new WinSetTitleException("Give process does not have GUI window: " + process.ProcessName);
             }
 
-            WinApiDllImports.SetWindowText(process.MainWindowHandle, newTitle);
+            this.SetTitleByMainWindowHandle(process.MainWindowHandle, newTitle);
+        }
+
+        public void SetTitleByMainWindowHandle(IntPtr mainWindowHandle, string newTitle)
+        {
+            WinApiDllImports.SetWindowText(mainWindowHandle, newTitle);
         }
     }
 }

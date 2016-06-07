@@ -56,8 +56,8 @@
     <Compile Include="EditWindowTitleForm.Designer.cs">
       <DependentUpon>EditWindowTitleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GlobalKeyboardHook.cs" />
     <Compile Include="GlobalKeyboardHooksManager.cs" />
+    <Compile Include="HotKeysHelper.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

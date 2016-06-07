@@ -7,6 +7,7 @@ namespace WinSetApplicationTitle
         public SettingsForm()
         {
             InitializeComponent();
+            
         }
     }
 }
