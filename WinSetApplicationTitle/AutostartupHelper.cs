@@ -2,7 +2,7 @@ namespace WinSetApplicationTitle
 {
     using System.Reflection;
     using Microsoft.Win32;
-
+    using NLog;
     public class AutostartupHelper
     {
         private static readonly string ApplicationName = Assembly.GetExecutingAssembly().GetName().Name;
@@ -27,8 +27,7 @@ namespace WinSetApplicationTitle
                 }
                 else
                 {
-                    // TODO: error logging
-                    /*Log.Error(String.Format("Unable to delete auto-startup option, key '{0}' is null", AutorunRelativePath));*/
+                    LogManager.GetCurrentClassLogger().Error(string.Format("Unable to delete auto-startup option, key '{0}' is null", AutorunRelativePath));
                 }
             }
         }

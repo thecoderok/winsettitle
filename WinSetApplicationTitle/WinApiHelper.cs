@@ -1,5 +1,6 @@
 namespace WinSetApplicationTitle
 {
+    using NLog;
     using System;
     using System.Diagnostics;
     using System.Text;
@@ -56,7 +57,7 @@ namespace WinSetApplicationTitle
             }
             catch (Exception ex)
             {
-                 // TODO: what can throw here
+                LogManager.GetCurrentClassLogger().Error(ex, "Error getting window caption: {0}.", ex.Message);
                 throw ex;
             }
         } 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 using WinSetApplicationTitle.Properties;
@@ -7,6 +8,8 @@ namespace WinSetApplicationTitle
 {
     static class Program
     {
+        private static readonly Logger log = LogManager.GetCurrentClassLogger();
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -17,7 +20,7 @@ namespace WinSetApplicationTitle
             {
                 using (new SingleGlobalInstance(1000))
                 {
-                    // TODO: logging
+                    log.Info("Launching application");
                     LaunchApplication();
                 }
             }
@@ -25,13 +28,14 @@ namespace WinSetApplicationTitle
             {
                 if (!TryToActivateAnotherInstance())
                 {
+                    log.Warn("Another instance detected");
                     MessageBox.Show("Another instance of application is already running.",
                         "WinSetTitle", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                // TODO: error handling
+                log.Error(ex, "Error while trying to check for another isntance: {0}.", ex.Message);
                 return -1;
             }
 
@@ -73,7 +77,7 @@ namespace WinSetApplicationTitle
             }
             catch (Exception ex)
             {
-                // TODO: error handling
+                log.Error(ex, "Error while trying to activate another isntance: {0}.", ex.Message);
                 return false;
             }
         }
@@ -91,7 +95,7 @@ namespace WinSetApplicationTitle
             }
             catch (Exception ex)
             {
-                // TODO: proper error handling
+                log.Error(ex, "Error while trying to upgrade settings: {0}.", ex.Message);
                 throw ex;
             }
         }

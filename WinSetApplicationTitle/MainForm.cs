@@ -3,6 +3,7 @@ using System.Windows.Forms;
 
 namespace WinSetApplicationTitle
 {
+    using NLog;
     using Properties;
     using System.Diagnostics;
     using System.Reflection;
@@ -11,6 +12,7 @@ namespace WinSetApplicationTitle
         private static bool canCloseForm = false;
         private readonly Settings AppSettings = Settings.Default;
         private readonly HotKeysHelper hotKeysHelper = new HotKeysHelper();
+        private readonly Logger log = LogManager.GetCurrentClassLogger();
         private Lazy<WinApiHelper> winApiHelper = new Lazy<WinApiHelper>(()=>new WinApiHelper());
 
         public MainForm()
@@ -28,7 +30,16 @@ namespace WinSetApplicationTitle
             var hkc = HotKeyCombination.GetFromConfig(AppSettings);
             this.txtHotkey.Text = hkc.ToString();
             hotKeysHelper.UnregisterHotKeys();
-            hotKeysHelper.RegisterHotKey(hkc.ModifierKeys, hkc.Key);
+            try
+            {
+                hotKeysHelper.RegisterHotKey(hkc.ModifierKeys, hkc.Key);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex, "Error when tried to register hot key: {0}.", ex.Message);
+                MessageBox.Show("Application was unable to register hot key\r\nperhaps it is already in use by other app.\r\nPlease pick different hot key.", "WinSetApplicationTitle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         public static void AllowFormClosing()
