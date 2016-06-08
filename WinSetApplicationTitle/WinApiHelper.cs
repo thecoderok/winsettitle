@@ -16,8 +16,11 @@ namespace WinSetApplicationTitle
                 return null;
             }
 
+            uint processId = 0;
+            WinApiDllImports.GetWindowThreadProcessId(windowHandle, out processId);
+            Process process = Process.GetProcessById((int)processId);
             string windowTitle = this.GetCaptionOfWindow(windowHandle);
-            return new GuiWindowInfo(windowHandle, windowTitle);
+            return new GuiWindowInfo(windowHandle, windowTitle, process);
         }
 
         private IntPtr GetTopmostWindowHandleUnderTheMouse()

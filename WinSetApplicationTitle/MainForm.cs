@@ -4,11 +4,12 @@ using System.Windows.Forms;
 namespace WinSetApplicationTitle
 {
     using Properties;
-
+    using System.Diagnostics;
     public partial class MainForm : Form
     {
         private static bool canCloseForm = false;
         private readonly Settings AppSettings = Settings.Default;
+        private Lazy<WinApiHelper> winApiHelper = new Lazy<WinApiHelper>(()=>new WinApiHelper());
 
         public MainForm()
         {
@@ -26,18 +27,14 @@ namespace WinSetApplicationTitle
 
         private void Helper_KeyPressed(object sender, KeyPressedEventArgs e)
         {
-            var titleSetter = new WindowTitleSetter();
-            var winApiHelper = new WinApiHelper();
-            GuiWindowInfo window = winApiHelper.GetWindowUnderMouse();
+            GuiWindowInfo window = this.winApiHelper.Value.GetWindowUnderMouse();
             if (window == null)
             {
                 return;
             }
 
-            var arr = window.Title.ToCharArray();
-            Array.Reverse(arr);
-
-            titleSetter.SetTitleByMainWindowHandle(window.MainWindowHandle, new string(arr));
+            var setTitleForm = new EditWindowTitleForm();
+            setTitleForm.StartWindowTitleEditing(window);
         }
 
         #region Event handlers

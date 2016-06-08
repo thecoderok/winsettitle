@@ -49,6 +49,9 @@ namespace WinSetApplicationTitle
         [DllImport("User32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         public static extern long GetClassName(IntPtr hwnd, StringBuilder lpClassName, long nMaxCount);
 
+        [DllImport("user32", SetLastError = true)]
+        public static extern UInt32 GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
+
         [StructLayout(LayoutKind.Sequential)]
         public struct POINT
         {
