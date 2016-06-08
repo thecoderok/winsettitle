@@ -85,15 +85,20 @@ namespace WinSetApplicationTitle
         /// </summary>
         public event EventHandler<KeyPressedEventArgs> KeyPressed;
 
-        #region IDisposable Members
-
-        public void Dispose()
+        public void UnregisterHotKeys()
         {
             // unregister all the registered hot keys.
             for (int i = _currentId; i > 0; i--)
             {
                 WinApiDllImports.UnregisterHotKey(_window.Handle, i);
             }
+        }
+
+        #region IDisposable Members
+
+        public void Dispose()
+        {
+            this.UnregisterHotKeys();
 
             // dispose the inner native window.
             _window.Dispose();

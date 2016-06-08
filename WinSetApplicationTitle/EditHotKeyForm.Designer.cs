@@ -68,7 +68,9 @@ namespace WinSetApplicationTitle
             // 
             // comboKey
             // 
+            this.comboKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboKey.FormattingEnabled = true;
+            this.comboKey.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.comboKey.Location = new System.Drawing.Point(109, 31);
             this.comboKey.Name = "comboKey";
             this.comboKey.Size = new System.Drawing.Size(121, 21);
@@ -76,6 +78,7 @@ namespace WinSetApplicationTitle
             // 
             // btnOk
             // 
+            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.Location = new System.Drawing.Point(260, 12);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
@@ -112,6 +115,7 @@ namespace WinSetApplicationTitle
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EditHotKeyForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edit Hot Key";
             this.ResumeLayout(false);
             this.PerformLayout();

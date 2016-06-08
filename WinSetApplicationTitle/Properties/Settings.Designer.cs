@@ -61,7 +61,7 @@ namespace WinSetApplicationTitle.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool HotKeyAlt {
             get {
                 return ((bool)(this["HotKeyAlt"]));
@@ -85,7 +85,7 @@ namespace WinSetApplicationTitle.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool HotKeyControl {
             get {
                 return ((bool)(this["HotKeyControl"]));
@@ -98,23 +98,12 @@ namespace WinSetApplicationTitle.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Z")]
-        public global::System.Windows.Forms.Keys HotKeyKey {
+        public string HotKeyKey {
             get {
-                return ((global::System.Windows.Forms.Keys)(this["HotKeyKey"]));
+                return ((string)(this["HotKeyKey"]));
             }
             set {
                 this["HotKeyKey"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::WinSetApplicationTitle.HotKeyCombination HotKey {
-            get {
-                return ((global::WinSetApplicationTitle.HotKeyCombination)(this["HotKey"]));
-            }
-            set {
-                this["HotKey"] = value;
             }
         }
     }

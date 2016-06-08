@@ -1,6 +1,8 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.Text;
 using System.Windows.Forms;
+using WinSetApplicationTitle.Properties;
 
 namespace WinSetApplicationTitle
 {
@@ -57,6 +59,28 @@ namespace WinSetApplicationTitle
             sb.Append(this.key.ToString());
 
             return sb.ToString();
+        }
+
+        internal static HotKeyCombination GetFromConfig(Settings appSettings)
+        {
+            ModifierKeys mk = 0;
+            if (appSettings.HotKeyAlt)
+            {
+                mk |= ModifierKeys.Alt;
+            }
+
+            if (appSettings.HotKeyControl)
+            {
+                mk |= ModifierKeys.Control;
+            }
+
+            if (appSettings.HotKeyShift)
+            {
+                mk |= ModifierKeys.Shift;
+            }
+
+            Keys key = (Keys)Enum.Parse(typeof(Keys), appSettings.HotKeyKey);
+            return new HotKeyCombination(mk, key);
         }
     }
 }

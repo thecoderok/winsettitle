@@ -36,19 +36,22 @@ namespace WinSetApplicationTitle
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainTabControl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnExit = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnEditHotkey = new System.Windows.Forms.Button();
+            this.txtHotkey = new System.Windows.Forms.TextBox();
             this.chkHideWindowOnStartup = new System.Windows.Forms.CheckBox();
             this.chkStartAppAutomatically = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtHotkey = new System.Windows.Forms.TextBox();
-            this.btnEditHotkey = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnOpenWebsite = new System.Windows.Forms.Button();
+            this.txtVersion = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.trayContextMenuStrip.SuspendLayout();
             this.mainTabControl.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // trayIcon
@@ -90,48 +93,67 @@ namespace WinSetApplicationTitle
             // 
             // mainTabControl
             // 
-            this.mainTabControl.Controls.Add(this.tabPage1);
             this.mainTabControl.Controls.Add(this.tabPage2);
+            this.mainTabControl.Controls.Add(this.tabPage1);
             this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainTabControl.Location = new System.Drawing.Point(0, 0);
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(284, 261);
+            this.mainTabControl.Size = new System.Drawing.Size(223, 256);
             this.mainTabControl.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.btnExit);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(276, 235);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Main";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // btnExit
-            // 
-            this.btnExit.Location = new System.Drawing.Point(8, 6);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 0;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnExit);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.chkHideWindowOnStartup);
             this.tabPage2.Controls.Add(this.chkStartAppAutomatically);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(276, 235);
+            this.tabPage2.Size = new System.Drawing.Size(215, 230);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Settings";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(134, 199);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 5;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click_1);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnEditHotkey);
+            this.groupBox1.Controls.Add(this.txtHotkey);
+            this.groupBox1.Location = new System.Drawing.Point(8, 52);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 77);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "React on hotkey:";
+            // 
+            // btnEditHotkey
+            // 
+            this.btnEditHotkey.Location = new System.Drawing.Point(119, 45);
+            this.btnEditHotkey.Name = "btnEditHotkey";
+            this.btnEditHotkey.Size = new System.Drawing.Size(75, 23);
+            this.btnEditHotkey.TabIndex = 1;
+            this.btnEditHotkey.Text = "Edit hotkey";
+            this.btnEditHotkey.UseVisualStyleBackColor = true;
+            this.btnEditHotkey.Click += new System.EventHandler(this.btnEditHotkey_Click);
+            // 
+            // txtHotkey
+            // 
+            this.txtHotkey.Location = new System.Drawing.Point(6, 19);
+            this.txtHotkey.Name = "txtHotkey";
+            this.txtHotkey.ReadOnly = true;
+            this.txtHotkey.Size = new System.Drawing.Size(188, 20);
+            this.txtHotkey.TabIndex = 0;
             // 
             // chkHideWindowOnStartup
             // 
@@ -155,40 +177,51 @@ namespace WinSetApplicationTitle
             this.chkStartAppAutomatically.UseVisualStyleBackColor = true;
             this.chkStartAppAutomatically.CheckedChanged += new System.EventHandler(this.chkStartAppAutomatically_CheckedChanged);
             // 
-            // groupBox1
+            // tabPage1
             // 
-            this.groupBox1.Controls.Add(this.btnEditHotkey);
-            this.groupBox1.Controls.Add(this.txtHotkey);
-            this.groupBox1.Location = new System.Drawing.Point(8, 52);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 77);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "React on hotkey:";
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.txtVersion);
+            this.tabPage1.Controls.Add(this.btnOpenWebsite);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(215, 230);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "About";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // txtHotkey
+            // btnOpenWebsite
             // 
-            this.txtHotkey.Location = new System.Drawing.Point(6, 19);
-            this.txtHotkey.Name = "txtHotkey";
-            this.txtHotkey.ReadOnly = true;
-            this.txtHotkey.Size = new System.Drawing.Size(188, 20);
-            this.txtHotkey.TabIndex = 0;
+            this.btnOpenWebsite.Location = new System.Drawing.Point(118, 199);
+            this.btnOpenWebsite.Name = "btnOpenWebsite";
+            this.btnOpenWebsite.Size = new System.Drawing.Size(94, 23);
+            this.btnOpenWebsite.TabIndex = 0;
+            this.btnOpenWebsite.Text = "Open website";
+            this.btnOpenWebsite.UseVisualStyleBackColor = true;
+            this.btnOpenWebsite.Click += new System.EventHandler(this.btnOpenWebsite_Click);
             // 
-            // btnEditHotkey
+            // txtVersion
             // 
-            this.btnEditHotkey.Location = new System.Drawing.Point(119, 45);
-            this.btnEditHotkey.Name = "btnEditHotkey";
-            this.btnEditHotkey.Size = new System.Drawing.Size(75, 23);
-            this.btnEditHotkey.TabIndex = 1;
-            this.btnEditHotkey.Text = "Edit hotkey";
-            this.btnEditHotkey.UseVisualStyleBackColor = true;
-            this.btnEditHotkey.Click += new System.EventHandler(this.btnEditHotkey_Click);
+            this.txtVersion.Location = new System.Drawing.Point(57, 6);
+            this.txtVersion.Name = "txtVersion";
+            this.txtVersion.ReadOnly = true;
+            this.txtVersion.Size = new System.Drawing.Size(152, 20);
+            this.txtVersion.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Version:";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(223, 256);
             this.Controls.Add(this.mainTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -198,11 +231,12 @@ namespace WinSetApplicationTitle
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.trayContextMenuStrip.ResumeLayout(false);
             this.mainTabControl.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -211,7 +245,6 @@ namespace WinSetApplicationTitle
 
         private System.Windows.Forms.NotifyIcon trayIcon;
         private System.Windows.Forms.TabControl mainTabControl;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ContextMenuStrip trayContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem showApplicationToolStripMenuItem;
@@ -219,10 +252,14 @@ namespace WinSetApplicationTitle
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.CheckBox chkHideWindowOnStartup;
         private System.Windows.Forms.CheckBox chkStartAppAutomatically;
-        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtHotkey;
         private System.Windows.Forms.Button btnEditHotkey;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Button btnOpenWebsite;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtVersion;
     }
 }
 

@@ -5,21 +5,30 @@ namespace WinSetApplicationTitle
 {
     using Properties;
     using System.Diagnostics;
+    using System.Reflection;
     public partial class MainForm : Form
     {
         private static bool canCloseForm = false;
         private readonly Settings AppSettings = Settings.Default;
+        private readonly HotKeysHelper hotKeysHelper = new HotKeysHelper();
         private Lazy<WinApiHelper> winApiHelper = new Lazy<WinApiHelper>(()=>new WinApiHelper());
 
         public MainForm()
         {
             InitializeComponent();
             this.InitSettings();
-            var helper = new HotKeysHelper();
-            helper.RegisterHotKey(WinSetApplicationTitle.ModifierKeys.Control | WinSetApplicationTitle.ModifierKeys.Shift, Keys.Z);
-            helper.KeyPressed += Helper_KeyPressed;
-            
-            AppSettings.Save();
+            this.InitHotKeys();
+
+            hotKeysHelper.KeyPressed += Helper_KeyPressed;
+            this.txtVersion.Text = GetAppVersion();
+        }
+
+        private void InitHotKeys()
+        {
+            var hkc = HotKeyCombination.GetFromConfig(AppSettings);
+            this.txtHotkey.Text = hkc.ToString();
+            hotKeysHelper.UnregisterHotKeys();
+            hotKeysHelper.RegisterHotKey(hkc.ModifierKeys, hkc.Key);
         }
 
         public static void AllowFormClosing()
@@ -101,20 +110,39 @@ namespace WinSetApplicationTitle
         private void InitSettings()
         {
             this.chkStartAppAutomatically.Checked = AppSettings.RunApplicationWhenWindowsStarts;
-            this.chkHideWindowOnStartup.Checked = AppSettings.HideWindowOnStartup;
-            if (AppSettings.HotKey == null)
-            {
-                AppSettings.HotKey = new HotKeyCombination(WinSetApplicationTitle.ModifierKeys.Control | WinSetApplicationTitle.ModifierKeys.Shift, Keys.Z);
-            }
-
-            this.txtHotkey.Text = AppSettings.HotKey.ToString();
+            this.chkHideWindowOnStartup.Checked = AppSettings.HideWindowOnStartup;         
         }
         #endregion
 
         private void btnEditHotkey_Click(object sender, EventArgs e)
         {
             var form = new EditHotKeyForm();
-            form.ShowDialog();
+            var currentHkc = HotKeyCombination.GetFromConfig(AppSettings);
+            var dialogResult = form.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                var newHkc = HotKeyCombination.GetFromConfig(AppSettings);
+                if (newHkc.ToString() != currentHkc.ToString())
+                {
+                    InitHotKeys();
+                }
+            }
         }
+
+        private void btnExit_Click_1(object sender, EventArgs e)
+        {
+            this.CloseApplication();
+        }
+
+        private void btnOpenWebsite_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/thecoderok/winsettitle");
+        }
+
+        public string GetAppVersion()
+        {
+            return Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        }
+
     }
 }
