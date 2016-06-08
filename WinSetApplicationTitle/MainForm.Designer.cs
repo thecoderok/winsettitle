@@ -229,6 +229,7 @@ namespace WinSetApplicationTitle
             this.Name = "MainForm";
             this.Text = "WinSetApplicationTitle";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.trayContextMenuStrip.ResumeLayout(false);
             this.mainTabControl.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);

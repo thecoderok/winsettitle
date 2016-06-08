@@ -99,6 +99,8 @@ namespace WinSetApplicationTitle
         private void ShowMainWindow()
         {
             this.Show();
+            this.WindowState = FormWindowState.Normal;
+            this.ShowInTaskbar = true;
         }
 
         private void CloseApplication()
@@ -144,5 +146,13 @@ namespace WinSetApplicationTitle
             return Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (AppSettings.HideWindowOnStartup)
+            {
+                this.WindowState = FormWindowState.Minimized;
+                this.ShowInTaskbar = false;
+            }
+        }
     }
 }
