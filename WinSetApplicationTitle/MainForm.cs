@@ -18,6 +18,8 @@ namespace WinSetApplicationTitle
             var helper = new HotKeysHelper();
             helper.RegisterHotKey(WinSetApplicationTitle.ModifierKeys.Control | WinSetApplicationTitle.ModifierKeys.Shift, Keys.Z);
             helper.KeyPressed += Helper_KeyPressed;
+            
+            AppSettings.Save();
         }
 
         public static void AllowFormClosing()
@@ -100,7 +102,19 @@ namespace WinSetApplicationTitle
         {
             this.chkStartAppAutomatically.Checked = AppSettings.RunApplicationWhenWindowsStarts;
             this.chkHideWindowOnStartup.Checked = AppSettings.HideWindowOnStartup;
+            if (AppSettings.HotKey == null)
+            {
+                AppSettings.HotKey = new HotKeyCombination(WinSetApplicationTitle.ModifierKeys.Control | WinSetApplicationTitle.ModifierKeys.Shift, Keys.Z);
+            }
+
+            this.txtHotkey.Text = AppSettings.HotKey.ToString();
         }
         #endregion
+
+        private void btnEditHotkey_Click(object sender, EventArgs e)
+        {
+            var form = new EditHotKeyForm();
+            form.ShowDialog();
+        }
     }
 }

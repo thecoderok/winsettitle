@@ -12,7 +12,7 @@ namespace WinSetApplicationTitle.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "12.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -56,6 +56,65 @@ namespace WinSetApplicationTitle.Properties {
             }
             set {
                 this["HideWindowOnStartup"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyAlt {
+            get {
+                return ((bool)(this["HotKeyAlt"]));
+            }
+            set {
+                this["HotKeyAlt"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool HotKeyShift {
+            get {
+                return ((bool)(this["HotKeyShift"]));
+            }
+            set {
+                this["HotKeyShift"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool HotKeyControl {
+            get {
+                return ((bool)(this["HotKeyControl"]));
+            }
+            set {
+                this["HotKeyControl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Z")]
+        public global::System.Windows.Forms.Keys HotKeyKey {
+            get {
+                return ((global::System.Windows.Forms.Keys)(this["HotKeyKey"]));
+            }
+            set {
+                this["HotKeyKey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::WinSetApplicationTitle.HotKeyCombination HotKey {
+            get {
+                return ((global::WinSetApplicationTitle.HotKeyCombination)(this["HotKey"]));
+            }
+            set {
+                this["HotKey"] = value;
             }
         }
     }

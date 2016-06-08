@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="GlobalKeyboardHooksManager.cs" />
     <Compile Include="GuiWindowInfo.cs" />
+    <Compile Include="HotKeyCombination.cs" />
     <Compile Include="HotKeysHelper.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

@@ -41,10 +41,14 @@ namespace WinSetApplicationTitle
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.chkHideWindowOnStartup = new System.Windows.Forms.CheckBox();
             this.chkStartAppAutomatically = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtHotkey = new System.Windows.Forms.TextBox();
+            this.btnEditHotkey = new System.Windows.Forms.Button();
             this.trayContextMenuStrip.SuspendLayout();
             this.mainTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // trayIcon
@@ -118,6 +122,7 @@ namespace WinSetApplicationTitle
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.chkHideWindowOnStartup);
             this.tabPage2.Controls.Add(this.chkStartAppAutomatically);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -150,13 +155,44 @@ namespace WinSetApplicationTitle
             this.chkStartAppAutomatically.UseVisualStyleBackColor = true;
             this.chkStartAppAutomatically.CheckedChanged += new System.EventHandler(this.chkStartAppAutomatically_CheckedChanged);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnEditHotkey);
+            this.groupBox1.Controls.Add(this.txtHotkey);
+            this.groupBox1.Location = new System.Drawing.Point(8, 52);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 77);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "React on hotkey:";
+            // 
+            // txtHotkey
+            // 
+            this.txtHotkey.Location = new System.Drawing.Point(6, 19);
+            this.txtHotkey.Name = "txtHotkey";
+            this.txtHotkey.ReadOnly = true;
+            this.txtHotkey.Size = new System.Drawing.Size(188, 20);
+            this.txtHotkey.TabIndex = 0;
+            // 
+            // btnEditHotkey
+            // 
+            this.btnEditHotkey.Location = new System.Drawing.Point(119, 45);
+            this.btnEditHotkey.Name = "btnEditHotkey";
+            this.btnEditHotkey.Size = new System.Drawing.Size(75, 23);
+            this.btnEditHotkey.TabIndex = 1;
+            this.btnEditHotkey.Text = "Edit hotkey";
+            this.btnEditHotkey.UseVisualStyleBackColor = true;
+            this.btnEditHotkey.Click += new System.EventHandler(this.btnEditHotkey_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.mainTabControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "WinSetApplicationTitle";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -165,6 +201,8 @@ namespace WinSetApplicationTitle
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -182,6 +220,9 @@ namespace WinSetApplicationTitle
         private System.Windows.Forms.CheckBox chkHideWindowOnStartup;
         private System.Windows.Forms.CheckBox chkStartAppAutomatically;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtHotkey;
+        private System.Windows.Forms.Button btnEditHotkey;
     }
 }
 

@@ -1,10 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace WinSetApplicationTitle
@@ -14,6 +8,21 @@ namespace WinSetApplicationTitle
         public EditHotKeyForm()
         {
             InitializeComponent();
+            var hotKey = Properties.Settings.Default.HotKey;
+            this.chkAlt.Checked = hotKey.ModifierKeys.HasFlag(WinSetApplicationTitle.ModifierKeys.Alt);
+            this.chkControl.Checked = hotKey.ModifierKeys.HasFlag(WinSetApplicationTitle.ModifierKeys.Control);
+            this.chkShift.Checked = hotKey.ModifierKeys.HasFlag(WinSetApplicationTitle.ModifierKeys.Shift);
+            
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
