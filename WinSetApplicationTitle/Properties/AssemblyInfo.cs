@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("WinSetApplicationTitle")]
-[assembly: AssemblyDescription("Free application to set window title of any opened Application (for Windows). https://github.com/thecoderok/winsettitle")]
+[assembly: AssemblyDescription("Free application to set window title of any opened Application (for Windows).")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("WinSetApplicationTitle")]
