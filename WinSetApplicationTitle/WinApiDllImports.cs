@@ -20,6 +20,9 @@ namespace WinSetApplicationTitle
         [DllImport("user32.dll")]
         public static extern int SetWindowText(IntPtr hWnd, string text);
 
+        [DllImport("user32.dll")]
+        public static extern int SetWindowTextW(IntPtr hWnd, string text);
+
         // Registers a hot key with Windows.
         [DllImport("user32.dll")]
         public static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, uint vk);
