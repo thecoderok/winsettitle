@@ -17,3 +17,6 @@ Hot key combination can be changed from the settings.
 #Download
 Application can be downloaded from: [GitHub Releases](https://github.com/thecoderok/winsettitle/releases)
 Unzip it to any folder and run `WinSetApplicationTitle.exe`
+
+#Compatibility
+Windows 7-10
